@@ -6,6 +6,7 @@ import anthropic
 import json
 import re
 import io
+import os
 
 # ===== CREATE APP =====
 app = FastAPI()
@@ -22,7 +23,7 @@ app.add_middleware(
 
 # ===== YOUR CLAUDE API KEY =====
 # IMPORTANT: Replace this with your real API key from console.anthropic.com
-CLAUDE_API_KEY = "paste-your-real-api-key-here"
+CLAUDE_API_KEY = os.getenv("CLAUDE_API_KEY")
 
 # ===== HEALTH CHECK =====
 @app.get("/")
